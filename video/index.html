@@ -161,6 +161,8 @@ else {
 
 
 	<script>
+	var isIphone = navigator.userAgent.indexOf('iPhone') >= 0;
+	if (isIphone) {
 		var canvasVideo = new CanvasVideoPlayer({
 			videoSelector: '.js-video',
 			canvasSelector: '.js-canvas',
@@ -168,6 +170,9 @@ else {
 			audio: false
 		});
 		canvasVideo.play();
+	}else{
+		//
+	}
 	</script>
 </body>
 </html>
