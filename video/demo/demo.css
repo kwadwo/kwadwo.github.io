@@ -27,6 +27,10 @@ body {
 	max-width: 840px;
 }
 
+.content.text {
+    margin-top: 243px;
+}
+
 .video-responsive {
 	padding-bottom: 56.25%;
 	position: relative;
