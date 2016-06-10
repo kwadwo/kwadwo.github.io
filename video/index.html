@@ -16,6 +16,13 @@
 		<div class="content">
 			<a href="https://github.com/Stanko/html-canvas-video-player" class="padding-right-20">GitHub</a>
 			<a href="https://github.com/Stanko/html-canvas-video-player/archive/master.zip">Download</a>
+			<a href="#" onclick="playFs();">View Fullscreen</a>
+					<script>
+function playFs() {
+var video = document.getElementsByClassName("js-video")[0];
+video.play();
+}
+</script>
 		</div>
 	</div>
 	<div class="video-wrapper js-video-wrapper">
@@ -35,15 +42,10 @@
 			</div>
 		</div>
 	</div>
-<p onclick="playFs();">View Fullscreen</p>
+
 
 	<div class="content text">
-		<script>
-function playFs() {
-var video = document.getElementsByClassName("js-video")[0];
-video.play();
-}
-</script>
+
 		<h1 class="margin-bottom-10">HTML canvas video player</h1>
 		<h3 class="margin-bottom-20">Easy way to play videos inline on iPhones</h3>
 		<p>
