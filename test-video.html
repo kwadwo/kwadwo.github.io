@@ -8,18 +8,17 @@
         // Construct the JWPlayer object, and set it up on the page.
         var player = jwplayer('player');
 
-        player.setup({
-            file: 'https://content.jwplatform.com/videos/TcKHo4H8-2048.mp4',
-            aspectratio: '16:9',
-            autostart: true,
-            controls: false,
-                advertising: {
-                    client: 'vast',
-                    tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml'
-                    //client: 'googima',
-                    //tag: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/30442161/2ndVideoTag-Test&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=[timestamp]'
-                }
-        });
+            player.setup({
+  file: 'https://content.jwplatform.com/videos/TcKHo4H8-2048.mp4',
+  aspectratio: '16:9',
+  autostart: true,
+  controls: false,
+  advertising: {
+         client: 'googima',
+         tag: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/30442161/2ndVideoTag-Test&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=[timestamp]',       
+    autoplayadsmuted: true
+  }
+});
         </script>
     </body>
 </html>
