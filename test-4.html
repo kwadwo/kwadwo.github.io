@@ -47,7 +47,10 @@
             playerInstance.on('ready', function() {
                 playerInstance.setMute(true);
             });
-
+		
+		playerInstance.onDisplayClick(function(event) { 
+			window.open('https://www.google.com');
+		}); 
             // handle when ad is complete or encounters error
             playerInstance.on('complete adComplete adError', function() {
                 adEl.style.maxHeight = '0px';
