@@ -39,17 +39,11 @@
 
             // player setup
             playerInstance.setup({
-                file: 'http://content.jwplatform.com/videos/mX3zaT5H-Zq6530MP.mp4',
+                file: 'https://content.jwplatform.com/videos/w9XkeauF-cM6Cmc78.mp4',
                 width: '178px',
                 height: '100px',
                 autostart: true,
-                controls: true,
-                advertising: {
-		   admessage: '',
-                    client: 'googima',
-                    tag: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/30442161/2ndVideoTag-Test&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=[timestamp]',       
-                    autoplayadsmuted: true  
-		}
+                controls: true
             });
 
             playerInstance.on('ready', function() {
