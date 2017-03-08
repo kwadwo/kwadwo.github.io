@@ -1,23 +1,97 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-    <title>Fullscreen</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.player,
+		body,
+		html {
+			padding: 0;
+			margin: 0
+		}
+
+		.player {
+			width: 100%;
+			height: 100%
+		}
+	</style>
+	<script src="https://content.jwplatform.com/libraries/hHLme2NW.js"></script>
 </head>
+
 <body>
-    <script src="https://content.jwplatform.com/libraries/hHLme2NW.js" type="text/javascript"></script>
-    <div id="player"></div>
-    <script type="text/javascript" language="javascript">
-    jwplayer("player").setup({
-        file: "http://content.jwplatform.com/videos/C4lp6Dtd-el5vTWpr.mp4",
-        image: "http://content.bitsontherun.com/thumbs/i8oQD9zd-640.jpg",
-        controls: false,
-        autostart: true
-    });
-     jwplayer().onDisplayClick(function() { 
-         	jwplayer().setFullscreen(true);
-			jwplayer().setMute(false);
-			jwplayer().setVolume(20);
-     });
-    </script>
+	<div id="player"></div>
+	<script>
+		var videoID = 'TcKHo4H8';
+		var clickThroughURL = 'http://kwadwo.org';
+
+		var playerInstance = jwplayer('player');
+
+		var ga = window.parent.ga || {};
+        var company = window.parent.Contra.Settings.company || '';
+		var percentViewed = 0;
+
+		var gaTracker = function(action, label) {
+			return;
+		}
+
+		// Add a class to the iframe to use for targeting
+		window.frameElement.setAttribute('class', 'mini-video-ad');
+
+		playerInstance.setup({
+			file: 'https://content.jwplatform.com/videos/' + videoID + '-320.mp4',
+			aspectratio: '16:9',
+			controls: false
+		});
+
+		playerInstance.on('ready ideal', function() {
+			parent.postMessage("_PINN_msg_video_ready", window.parent.location.origin);
+			playerInstance.setMute(true);
+			playerInstance.play();
+		});
+
+		playerInstance.on('displayClick', function() {
+			playerInstance.setFullscreen(true);
+			playerInstance.setMute(false);
+			playerInstance.setVolume(20);
+		});
+
+		playerInstance.on('complete error', function() {
+			parent.postMessage("_PINN_msg_video_complete", window.parent.location.origin);
+		});
+
+		playerInstance.on('time', function(e) {
+			var percentageComplete = Math.round(e.position / e.duration * 100);
+			if (percentViewed !== percentageComplete) {
+				percentViewed = percentageComplete;
+				gaTracker('percent_complete_' + videoID + '_' + e.duration, percentageComplete);
+			}
+		});
+
+		playerInstance.on('play', function() {
+			gaTracker('resumed_' + videoID);
+		});
+
+		playerInstance.on('pause', function() {
+			gaTracker('paused_' + videoID);
+		});
+
+		playerInstance.on('fullscreen', function() {
+			gaTracker('fullscreened_' + videoID);
+		});
+
+		var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+		var eventer = window[eventMethod];
+		var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
+
+		// Listen to message from child window
+		eventer(messageEvent, function(event) {
+			if (event.data === '_PINN_msg_clickthrough') {
+				window.open(clickThroughURL, '_blank');
+			}
+		}, false);
+	</script>
 </body>
+
 </html>
