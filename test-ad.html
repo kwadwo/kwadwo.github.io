@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fullscreen</title>
+</head>
+<body>
+    <script src="http://p.jwpcdn.com/6/11/jwplayer.js" type="text/javascript"></script>
+    <div id="player"></div>
+    <script type="text/javascript" language="javascript">
+    jwplayer("player").setup({
+        file: "http://content.jwplatform.com/videos/C4lp6Dtd-el5vTWpr.mp4",
+        image: "http://content.bitsontherun.com/thumbs/i8oQD9zd-640.jpg",
+        controls: false,
+        autostart: true
+    });
+     jwplayer().onDisplayClick(function() { jwplayer().setFullscreen(true); });
+    </script>
+</body>
+</html>
