@@ -13,7 +13,11 @@
         controls: false,
         autostart: true
     });
-     jwplayer().onDisplayClick(function() { jwplayer().setFullscreen(true); });
+     jwplayer().onDisplayClick(function() { 
+         	jwplayer().setFullscreen(true);
+			jwplayer().setMute(false);
+			jwplayer().setVolume(20);
+     });
     </script>
 </body>
 </html>
