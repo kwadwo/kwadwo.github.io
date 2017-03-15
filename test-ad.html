@@ -37,6 +37,11 @@
                 tag: 'https://fw.adsafeprotected.com/vast/fwjsvid/st/79335/14020093/skeleton.js?originalVast=https://ad.doubleclick.net/ddm/pfadx/N4427.128015.THRILLIST.COM/B11102121.148021414;sz=0x0;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;dcmt=text/xml'
             }
         });
+        
+        playerInstance.on('adClick',function(event) {
+            console.log('ad click');
+            playerInstance.setFullscreen(true);
+        });
     </script>
 </body>
 
