@@ -2,55 +2,53 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		.player,
-		body,
-		html {
-			padding: 0;
-			margin: 0
-		}
-
-		.player {
-			width: 100%;
-			height: 100%
-		}
-	</style>
-	<script src="https://content.jwplatform.com/libraries/hHLme2NW.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .player,
+        body,
+        html {
+            padding: 0;
+            margin: 0
+        }
+        
+        .player {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+    <script src="https://content.jwplatform.com/libraries/hHLme2NW.js"></script>
 </head>
 
 <body>
-	<div id="player"></div>
-	<script>
-		var videoID = 'TcKHo4H8';
-		var clickThroughURL = 'http://kwadwo.org';
+    <div id="player"></div>
+    <script>
+        var videoID = 'TcKHo4H8';
+        var clickThroughURL = 'http://kwadwo.org';
 
-		var playerInstance = jwplayer('player');
+        var playerInstance = jwplayer('player');
 
-		var ga = window.parent.ga || {};
-	        var company = '';
-		var percentViewed = 0;
+        var ga = window.parent.ga || {};
+        var company = '';
+        var percentViewed = 0;
 
-		var gaTracker = function(action, label) {
-			return;
-		}
+        var gaTracker = function(action, label) {
+            return;
+        }
 
-	 
 
-		playerInstance.setup({
-			file: 'https://content.jwplatform.com/videos/' + videoID + '-320.mp4',
-			aspectratio: '16:9',
+
+        playerInstance.setup({
+            file: 'https://content.jwplatform.com/videos/' + videoID + '-320.mp4',
+            aspectratio: '16:9',
             primary: 'flash',
+            autostart: 'true',
             advertising: {
                 client: 'vast',
-                    tag: 'https://fw.adsafeprotected.com/vast/fwjsvid/st/79335/14020093/skeleton.js?originalVast=https://ad.doubleclick.net/ddm/pfadx/N4427.128015.THRILLIST.COM/B11102121.148021414;sz=0x0;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;dcmt=text/xml'
-                }
-            });
-
-
-		
-	</script>
+                tag: 'https://fw.adsafeprotected.com/vast/fwjsvid/st/79335/14020093/skeleton.js?originalVast=https://ad.doubleclick.net/ddm/pfadx/N4427.128015.THRILLIST.COM/B11102121.148021414;sz=0x0;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;dcmt=text/xml'
+            }
+        });
+    </script>
 </body>
 
 </html>
