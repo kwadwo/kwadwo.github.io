@@ -28,6 +28,12 @@
 	    document.getElementById("interceptor").setAttribute("style", style);
     });
     
+	
+playerone.on('adImpression',function(event){
+  	console.log(event);
+});
+
+	
     function addOverlay(){
 	    var overlays = document.getElementsByClassName("jw-overlays")[0];
 	    var div = document.createElement("div");
