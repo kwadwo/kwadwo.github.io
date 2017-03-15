@@ -23,7 +23,7 @@
     }).on('ready',function(){
 	   addOverlay();
     }).on('resize',function(e){
-	    var style = "pointer-events:all; height:"+e.height+"px; width:"+e.width+"px; background-color: rgba(149, 0, 208, 0.54); color: white; padding:10px;";
+	    var style = "pointer-events:all; height:"+e.height+"px; width:"+e.width+"px; background-color: rgba(149, 0, 208, 0); color: white; padding:10px;";
 	    console.log(style);
 	    document.getElementById("interceptor").setAttribute("style", style);
     });
