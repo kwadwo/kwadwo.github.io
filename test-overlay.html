@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fullscreen Overlay</title>
+	<script src="http://content.jwplatform.com/libraries/7J1pdIcs.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script>
+	
+    var playerone = jwplayer("container");
+    playerone.setup({
+	    file:'http://content.jwplatform.com/manifests/Y5UQq0fG.m3u8',
+		width:'50%',
+		aspectratio:'16:9',
+     advertising: {
+    client: 'vast',
+    tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml'
+  }
+    }).on('ready',function(){
+	   addOverlay();
+    }).on('resize',function(e){
+	    var style = "pointer-events:all; height:"+e.height+"px; width:"+e.width+"px; background-color: rgba(149, 0, 208, 0.54); color: white; padding:10px;";
+	    console.log(style);
+	    document.getElementById("interceptor").setAttribute("style", style);
+    });
+    
+    function addOverlay(){
+	    var overlays = document.getElementsByClassName("jw-overlays")[0];
+	    var div = document.createElement("div");
+	    div.id="interceptor";
+	    div.innerHTML="This is an overlay";
+	    div.onclick = function(){
+		    playerone.getContainer().webkitRequestFullscreen();
+	    }
+	    overlays.appendChild(div);
+    }
+
+</script>
+<h3>Go Fullscreen Overlay</h3>
+<p>Customers have been having issues adding custom UI elements to our player and keeping them visible when the player is in fullscreen. In this code example we add a div to the jw-overlays container that circumvents the issue of the custom UI not showing up in fullscreen. You'll also have to set the "pointerEvents" attribute of the DOM element to "all" since the "jw-overlays" class has is set to "none" and your UI would have no interactivity.</p>
+<h3>Live Test Page</h3>
+<p>http://qa.jwplayer.com.s3.amazonaws.com/~george/overlay_go_fullscreen.html</p>
+</body>
+</html>
