@@ -41,54 +41,15 @@
 		playerInstance.setup({
 			file: 'https://content.jwplatform.com/videos/' + videoID + '-320.mp4',
 			aspectratio: '16:9',
-			controls: false
-		});
+            primary: 'flash',
+            advertising: {
+                client: 'vast',
+                    tag: 'https://fw.adsafeprotected.com/vast/fwjsvid/st/79335/14020093/skeleton.js?originalVast=https://ad.doubleclick.net/ddm/pfadx/N4427.128015.THRILLIST.COM/B11102121.148021414;sz=0x0;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;dcmt=text/xml'
+                }
+            });
 
-		playerInstance.on('ready ideal', function() {
-			parent.postMessage("_PINN_msg_video_ready", window.parent.location.origin);
-			playerInstance.setMute(true);
-			playerInstance.play();
-		});
 
-		playerInstance.on('displayClick', function() {
-			playerInstance.setFullscreen(true);
-	
-		});
-
-		playerInstance.on('complete error', function() {
-			parent.postMessage("_PINN_msg_video_complete", window.parent.location.origin);
-		});
-
-		playerInstance.on('time', function(e) {
-			var percentageComplete = Math.round(e.position / e.duration * 100);
-			if (percentViewed !== percentageComplete) {
-				percentViewed = percentageComplete;
-				gaTracker('percent_complete_' + videoID + '_' + e.duration, percentageComplete);
-			}
-		});
-
-		playerInstance.on('play', function() {
-			gaTracker('resumed_' + videoID);
-		});
-
-		playerInstance.on('pause', function() {
-			gaTracker('paused_' + videoID);
-		});
-
-		playerInstance.on('fullscreen', function() {
-			gaTracker('fullscreened_' + videoID);
-		});
-
-		var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-		var eventer = window[eventMethod];
-		var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
-
-		// Listen to message from child window
-		eventer(messageEvent, function(event) {
-			if (event.data === '_PINN_msg_clickthrough') {
-				window.open(clickThroughURL, '_blank');
-			}
-		}, false);
+		
 	</script>
 </body>
 
