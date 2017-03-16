@@ -38,16 +38,16 @@
 
             // player setup
             playerInstance.setup({
-                file: 'https://content.jwplatform.com/videos/w9XkeauF-cM6Cmc78.mp4',
+                sources: ['https://content.jwplatform.com/videos/w9XkeauF-cM6Cmc78.mp4', 'https://content.jwplatform.com/videos/w9XkeauF-GARtAXCV.mp4'],
                 width: '178px',
                 height: '100px',
                 autostart: true,
                 controls: true,
-		advertising: {
-                   client: 'vast',
-                   tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml',
-	           autoplayadsmuted: true
-                }
+// 		advertising: {
+//                    client: 'vast',
+//                    tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml',
+// 	           autoplayadsmuted: true
+//                 }
             });
 
             playerInstance.on('ready', function() {
