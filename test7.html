@@ -54,7 +54,8 @@
                 playerInstance.setMute(true);
             });
 		
-	playerInstance.on('adClick', function() {
+	playerInstance.on('adClick', function(event) {
+		console.log(event);
                 playerInstance.setFullscreen(true);
             });
 		
