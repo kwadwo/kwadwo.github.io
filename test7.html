@@ -44,12 +44,17 @@
                 controls: true,
 		advertising: {
                    client: 'vast',
-                   tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml'
+                   tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml',
+	           autoplayadsmuted: true
                 }
             });
 
             playerInstance.on('ready', function() {
                 playerInstance.setMute(true);
+            });
+		
+	playerInstance.on('adClick', function() {
+                playerInstance.setFullscreen(true);
             });
 		
 	playerInstance.on('displayClick', function () {
