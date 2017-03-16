@@ -39,7 +39,14 @@
             // player setup
             playerInstance.setup({
                 sources: {'https://content.jwplatform.com/videos/w9XkeauF-cM6Cmc78.mp4', 'https://content.jwplatform.com/videos/w9XkeauF-GARtAXCV.mp4'},
-                width: '178px',
+                playlist: [{
+       	 	sources: [{ 
+			    file: "https://content.jwplatform.com/videos/w9XkeauF-cM6Cmc78.mp4"
+			},{ 
+			    file: "https://content.jwplatform.com/videos/w9XkeauF-GARtAXCV.mp4"
+			}]
+		}],
+		width: '178px',
                 height: '100px',
                 autostart: true,
                 controls: true,
