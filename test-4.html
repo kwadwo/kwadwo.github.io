@@ -41,7 +41,11 @@
                 width: '178px',
                 height: '100px',
                 autostart: true,
-                controls: true
+                controls: true,
+		advertising: {
+                   client: 'vast',
+                   tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml'
+                }
             });
 
             playerInstance.on('ready', function() {
