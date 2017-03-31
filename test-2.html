@@ -40,19 +40,10 @@
             // player setup
             playerInstance.setup({
                 file: 'http://content.jwplatform.com/videos/dRz82rOE.mp4',
-                width: '178px',
-                height: '100px',
+                width: '100%',
+                height: '100%',
                 autostart: true,
                 controls: true
-            });
-
-            playerInstance.on('ready', function() {
-                playerInstance.setMute(true);
-            });
-
-            // handle when ad is complete or encounters error
-            playerInstance.on('complete adComplete adError', function() {
-                adEl.style.maxHeight = '0px';
             });
         });
 	</script>
