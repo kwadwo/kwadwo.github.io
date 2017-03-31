@@ -13,19 +13,10 @@
 	<style>
         .jw-ad #player {
             background-color: #000;
-			position: fixed;
-			bottom: 10px;
-			right: 10px;
-        } 
-		#player .jw-icon-playback {
-		  display: none !important;
-		}
-		#player .jw-icon-volume {
-			 display: none !important;
-		}
-		#player .jw-controlbar-left-group{
-			display: none;
-		}
+	    position: fixed;
+	    bottom: 10px;
+	    right: 10px;
+        }
 	</style>
 </head>
 	<body style="width:100%; margin:0; padding: 0px;">
@@ -33,9 +24,6 @@
         $(document).ready(function() {
             // player elements and utility vars
             var playerInstance = jwplayer('player'),
-                adEl = document.querySelector('.jw-ad'),
-                adLabelEl = document.querySelector('.jw-ad-label'),
-                adMediaContainerEl = document.querySelector('.jw-ad-media-container');
 
             // player setup
             playerInstance.setup({
