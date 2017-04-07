@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,15 +64,20 @@
             file: 'https://content.jwplatform.com/videos/Z2AaZjl6-480.mp4',
             autostart: true,
             controls: true,
-            plugins: {
-                'http://cdn-gl.imrworldwide.com/novms/jw/ggjw510.js': {
-                    apid: 'TFE5944A3-7AA8-4EB6-A115-F9A9BBCA48D3',
-                    sfcode: 'dcr-cert',
-                    nsdkv: '511',
-                    nol_sdkDebug: 'DEBUG',
-                    apn: 'GroupNinie_NowThis_TestVideo'
-               }
-            },
+            advertising: {
+        		client: 'googima',
+                admessage: "Your video won't play for xx seconds",
+        		schedule: {
+        			adbreak1: {
+        				offset: "pre",
+        				tag: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/1006809/tmg&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=[timestamp]'
+        			},
+        			adbreak2: {
+        				offset: 5,
+                        tag: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/1006809/tmg&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=[timestamp]'
+                    },
+        		}
+        	}
         });
     </script>
 </body>
